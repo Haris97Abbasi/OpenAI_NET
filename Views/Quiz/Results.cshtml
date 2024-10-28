@@ -1,0 +1,41 @@
+﻿@model OpenAiProject.Models.QuizResponse
+@{
+    ViewData["Title"] = "Quiz Results";
+    int count = 1; // variable used in the foreach loop to display the question number
+}
+
+<h2>Quiz Results</h2>
+
+<p>Your Score: @ViewBag.Score / @ViewBag.TotalQuestions</p>
+
+@foreach (var question in Model.Questions)
+{
+    <div class="result">
+        <p><strong>Question @count :</strong> @question.Text</p>
+
+        @if (question.SelectedOptionIndex.HasValue &&
+             question.SelectedOptionIndex.Value >= 0 &&
+             question.SelectedOptionIndex.Value < question.Options.Count)
+        {
+            <p style="background-color: @(question.SelectedOptionIndex == question.CorrectOptionIndex ? "lightgreen" : "lightcoral"); 
+                      color: @(question.SelectedOptionIndex == question.CorrectOptionIndex ? "darkgreen" : "darkred");
+                      padding: 10px; border-radius: 5px;">
+                <strong>Your Answer:</strong> @question.Options[question.SelectedOptionIndex.Value]
+            </p>
+        }
+        else
+        {
+            <p><strong>Your Answer:</strong> No valid answer selected</p>
+        }
+        @{
+            count++;
+        }
+
+        <p><strong>Correct Answer:</strong> @question.Options[question.CorrectOptionIndex]</p>
+    </div>
+    <hr />
+}
+
+<a class="btn btn-info" asp-area="" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+<a class="btn btn-primary" asp-action="DownloadResult" asp-route-score="@ViewBag.Score" asp-route-totalQuestions="@ViewBag.TotalQuestions">Download Result</a>
+<a class="btn btn-primary" asp-action="EmailQuizScore" asp-route-score="@ViewBag.Score" asp-route-totalQuestions="@ViewBag.TotalQuestions" asp-route-receiverEmail="@User.Identity.Name">Get Score via Email</a>

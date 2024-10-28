@@ -1,0 +1,77 @@
+﻿@model OpenAiProject.Models.QuizRequest
+@{
+    ViewData["Title"] = "Quiz Setup";
+}
+
+<h2>Select Quiz Topic, Difficulty, and Language</h2>
+
+<form asp-action="GenerateQuiz" method="post">
+    <div class="form-group">
+        <label for="Topic">Topic:</label>
+        <input asp-for="Topic" class="form-control" />
+        <span asp-validation-for="Topic" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-5">
+        <label for="Difficulty">Difficulty Level:</label>
+        <select asp-for="Difficulty" class="form-control">
+            <option value="">Please select difficulty level</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+        <span asp-validation-for="Difficulty" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-5">
+        <label for="Language">Language:</label>
+        <select asp-for="Language" class="form-control">
+            <option value="">Please select language</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Dutch">Dutch</option>
+            <option value="Russian">Russian</option>
+            <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+            <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Indonesian">Indonesian</option>
+            <option value="Swahili">Swahili</option>
+            <option value="Thai">Thai</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Greek">Greek</option>
+            <option value="Hebrew">Hebrew</option>
+            <option value="Polish">Polish</option>
+            <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option>
+            <option value="Finnish">Finnish</option>
+            <option value="Hungarian">Hungarian</option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Swedish">Swedish</option>
+            <option value="Romanian">Romanian</option>
+            <option value="Ukrainian">Ukrainian</option>
+            <option value="Malay">Malay</option>
+            <option value="Filipino/Tagalog">Filipino/Tagalog</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Malayalam">Malayalam</option>
+            <option value="Persian (Farsi)">Persian (Farsi)</option>
+        </select>
+        <span asp-validation-for="Language" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-5">Generate Quiz</button>
+</form>

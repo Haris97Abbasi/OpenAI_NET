@@ -1,0 +1,42 @@
+﻿@model OpenAiProject.Models.QuizResponse
+@{
+    ViewData["Title"] = "Quiz";
+}
+
+<h2>Quiz</h2>
+@if (Model.Questions != null && Model.Questions.Count > 0)
+{
+    <form asp-action="SubmitQuiz" method="post">
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+            var question = Model.Questions[i];
+            <div class="question">
+                <p>@(i + 1). @question.Text</p>
+
+                <!-- Hidden field for Question Text -->
+                <input type="hidden" asp-for="Questions[@i].Text" value="@question.Text" />
+
+                <!-- Hidden field for CorrectOptionIndex -->
+                <input type="hidden" asp-for="Questions[@i].CorrectOptionIndex" value="@question.CorrectOptionIndex" />
+
+                <!-- Hidden fields for Options -->
+                @for (int j = 0; j < question.Options.Count; j++)
+                {
+                    <input type="hidden" name="Questions[@i].Options[@j]" value="@question.Options[j]" />
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" asp-for="Questions[@i].SelectedOptionIndex" value="@j" />
+                        <label class="form-check-label">@question.Options[j]</label>
+                    </div>
+                }
+            </div>
+            <hr />
+        }
+        <button type="submit" class="btn btn-primary">Submit Quiz</button>
+    </form>
+}
+
+else
+{
+    <p>No questions available for this quiz. Please try again with different parameters.</p>
+}
