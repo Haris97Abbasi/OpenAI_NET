@@ -19,3 +19,33 @@ var requestBody = new
     messages = messages,
     max_tokens = 1500
 };
+
+
+## Technology Stack
+This project is crafted with a modern technology stack optimized for performance and a smooth user experience:
+
+- **ASP.NET Core MVC**: A scalable and structured framework for building robust applications.
+- **Entity Framework Core**: Streamlines database operations with MS SQL Server.
+- **OpenAI GPT-4**: Generates dynamic quiz questions, offering a unique and engaging experience.
+- **PdfSharpCore**: Creates downloadable PDF reports for quiz results.
+- **MailKit**: Enables email delivery of quiz results upon user request.
+- **HTML, CSS, JavaScript, Bootstrap**: Provides a responsive, polished front-end interface.
+- **GitHub**: Facilitates version control for collaborative development.
+- **C# (OOP)**: Utilizes object-oriented programming for organized and maintainable backend logic.
+
+## Why This Project Stands Out
+This project exemplifies a full-stack web application that incorporates AI capabilities within the .NET 8 framework. It showcases advanced backend development using Entity Framework Core and MS SQL Server, combined with front-end best practices to deliver an intuitive and engaging user experience. The integration of AI with .NET technology positions this project as a leading-edge example of modern web development.
+
+## Tags
+- **Artificial Intelligence**
+- **OpenAI**
+- **ChatGPT-4.0**
+- **.NET Core**
+- **ASP.NET Core MVC**
+- **Entity Framework Core**
+- **MS SQL Server**
+- **MailKit**
+- **GitHub**
+- **HTML, CSS, JavaScript, Bootstrap**
+- **C# (OOP)**
+- **Razor Pages**
